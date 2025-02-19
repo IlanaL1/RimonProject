@@ -3,11 +3,12 @@ from typing import Literal, TypedDict
 import asyncio
 import os
 
-import streamlit as st
+
 import json
 import logfire
 from supabase import Client
 from openai import AsyncOpenAI
+import streamlit as st
 
 # Import all the message part classes
 from pydantic_ai.messages import (
@@ -24,9 +25,13 @@ from pydantic_ai.messages import (
 )
 from rimon_ai_expert import rimon_ai_expert, PydanticAIDeps
 
-# Load environment variables
-from dotenv import load_dotenv
-load_dotenv()
+# Load environment variables - replacing with streamlit
+#from dotenv import load_dotenv
+#load_dotenv()
+OPENAI_API_KEY= st.secrets["OPENAI_API_KEY"]
+SUPABASE_URL=st.secrets["SUPABASE_URL"]
+SUPABASE_SERVICE_KEY=st.secrets["SUPABASE_SERVICE_KEY"]
+LLM_MODEL=st.secrets["LLM_MODEL"]
 
 openai_client = AsyncOpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 supabase: Client = Client(
@@ -121,7 +126,7 @@ async def main():
                 display_message_part(part)
 
     # Chat input for the user
-    user_input = st.chat_input("What questions do you have about Jewish Life according to Rimon.AI?")
+    user_input = st.chat_input("What questions do you have for Rimon.AI?")
 
     if user_input:
         # We append a new request to the conversation explicitly

@@ -17,8 +17,13 @@ from pydantic_ai.models.openai import OpenAIModel
 from openai import AsyncOpenAI
 from supabase import Client
 from typing import List
+import streamlit as st
 
-load_dotenv()
+#load_dotenv()
+OPENAI_API_KEY= st.secrets["OPENAI_API_KEY"]
+SUPABASE_URL=st.secrets["SUPABASE_URL"]
+SUPABASE_SERVICE_KEY=st.secrets["SUPABASE_SERVICE_KEY"]
+LLM_MODEL=st.secrets["LLM_MODEL"]
 
 llm = os.getenv('LLM_MODEL', 'gpt-4o-mini')
 model = OpenAIModel(llm)
@@ -39,11 +44,11 @@ Don't ask the user before taking an action, just do it. Always make sure you loo
 
 When you first look at the documentation, always start with RAG.
 Please extract paragraphs from each returned chunk in RAG, and add a citation for that paragraph. 
-The citation should appear diretly below the paragraph, and should contain the article title, author, date and url which is the source of the chunk used to extract this paragraph.  
+The citation should appear directly below the paragraph, and should contain the article title, author, date and url which is the source of the chunk used to extract this paragraph.  
 
 Then also always check the list of available Pomegranate Place article urls and retrieve the content of page(s) if it'll help.
 Please extract paragraphs from each returned page content that is relevant, 
-The citation should appear diretly below the paragraph, and should contain the article title, author, date and url which is the source of the chunk used to extract this paragraph.  
+The citation should appear directly below the paragraph, and should contain the article title, author, date and url which is the source of the chunk used to extract this paragraph.  
 
 
 A citation should contain the article title, publication name, author(s), and date of publication, and url link to full article. 
