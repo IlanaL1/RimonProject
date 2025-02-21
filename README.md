@@ -1,10 +1,6 @@
 ## README
-To do - update README
-read in secrets from toml (done)
-import via from st.to.. etc to read in secrets (done)
-commit files
-check supabase is working 
-might need to redeploy projct.
+
+this project is not a fork but is a modification of Crawl4AIagent.
 
 ### Pipeline Overview
 
