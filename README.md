@@ -1,4 +1,10 @@
 ## README
+To do - update README
+read in secrets from toml (done)
+import via from st.to.. etc to read in secrets (done)
+commit files
+check supabase is working 
+might need to redeploy projct.
 
 ### Pipeline Overview
 
@@ -16,20 +22,29 @@ There are several parts to creating the supabase index.
 
 ## Run Pipeline
 
-### Activate venv
+### Activate venv in Linux 
 
-### Aciviating venvv in PyCharm
+### Aciviating venv in Windows
 cmd /k "activate"
 To activate the venv1 cd venv1/scripts, the above
 https://stackoverflow.com/questions/22288569/how-do-i-activate-a-virtualenv-inside-pycharms-terminal
 
-Install the package
-pip install -U crawl4ai
+### Pre-install Crawl4ai the package 
+See crawl4ai github page
 
-### Run post-installation setup
-crawl4ai-setup
+### Install the package
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
 
-### Verify your installation
-crawl4ai-doctor
+### Set up environment variables 
+OPENAI_API_KEY=your_openai_api_key
+SUPABASE_URL=your_supabase_url
+SUPABASE_SERVICE_KEY=your_supabase_service_key
+LLM_MODEL=gpt-4o-mini  # or your preferred OpenAI model
 
-Note - above passed in shell
+### Create index
+crawl to create your index
+
+### Run 
+streamlit run streamlit_ui.py

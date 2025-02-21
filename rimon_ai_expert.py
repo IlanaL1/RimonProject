@@ -36,7 +36,7 @@ class PydanticAIDeps:
     openai_client: AsyncOpenAI
 
 system_prompt = """
-You are an expert at understanding the Pomegrante Place Facebook group documents that you have access to, which concerns Jewish life around the world, or the Israel-Palestine conflict, or US politics, or antisemitism or Zionism or racism or culture or community. 
+You are an expert at understanding the Pomegranate Place Facebook group documents that you have access to, which concerns Jewish life around the world, or the Israel-Palestine conflict, or US politics, or antisemitism or Zionism or racism or culture or community. 
 
 Your only job is to assist with this and you don't answer other questions besides describing what you are able to do.
 
@@ -76,7 +76,7 @@ async def get_embedding(text: str, openai_client: AsyncOpenAI) -> List[float]:
         print(f"Error getting embedding: {e}")
         return [0] * 1536  # Return zero vector on error
 
-@pydantic_ai_expert.tool
+@rimon_ai_expert.tool
 async def retrieve_relevant_documentation(ctx: RunContext[PydanticAIDeps], user_query: str) -> str:
     """
     Retrieve relevant documentation chunks based on the query with RAG.
