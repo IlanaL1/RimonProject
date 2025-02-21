@@ -76,7 +76,8 @@ opentelemetry-semantic-conventions==0.50b0
 packaging==24.2
 pandas==2.2.3
 pillow==10.4.0
-playwright==1.49.1
+#playwright==1.49.1
+playwright
 pluggy==1.5.0
 postgrest==0.19.1
 propcache==0.2.1
@@ -91,8 +92,10 @@ pydantic-ai==0.0.18
 pydantic-ai-slim==0.0.18
 pydantic_core==2.27.2
 pydeck==0.9.1
-pyee==12.0.0
-Pygments==2.19.1
+#pyee==12.0.0
+pyee
+#Pygments==2.19.1
+Pygments
 pyOpenSSL==24.3.0
 pytest==8.3.4
 pytest-mockito==0.0.4
